@@ -37,7 +37,7 @@ add dst-address=192.168.1.1 action=accept
 
 # Konfigurasi Di Openwrt:
 
-Untuk `openwrt 23` dan lebih rendah:
+Untuk `openwrt 24` dan lebih rendah:
 
 ```bash
 wget -O /tmp/luci-app-wifi-payment_1.0_all.ipk https://github.com/Maizil41/mikrotik-pakasir-payment/releases/download/v1.0/luci-app-wifi-payment_1.0_all.ipk
@@ -45,7 +45,7 @@ wget -O /tmp/luci-app-wifi-payment_1.0_all.ipk https://github.com/Maizil41/mikro
 opkg install /tmp/luci-app-wifi-payment_1.0_all.ipk
 ```
 
-Untuk `openwrt 24` dan lebih baru:
+Untuk `openwrt 25` dan lebih baru:
 
 ```bash
 wget -O /tmp/luci-app-wifi-payment-1.0-r1.apk https://github.com/Maizil41/mikrotik-pakasir-payment/releases/download/v1.0/luci-app-wifi-payment-1.0-r1.apk
