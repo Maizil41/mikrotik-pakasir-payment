@@ -19,7 +19,7 @@ Payment Gateway MikroTik Dengan Integrasi API Pakasir
     "dayjs",
     "express",
     "node-routeros",
-    "mikrotik-pakasir-payment",
+    "pakasir-sdk",
     "qrcode",
     "sharp",
     "sqlite3"
