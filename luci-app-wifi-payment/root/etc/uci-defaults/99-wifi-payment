@@ -2,7 +2,15 @@
 
 cd /etc/wifi-payment || exit 1
 
-cat requirements.txt | xargs npm install
+while IFS= read -r pkg; do
+    [ -z "$pkg" ] && continue
+    case "$pkg" in
+        \#*) continue ;;
+    esac
+
+    echo "Installing $pkg..."
+    npm install "$pkg" || exit 1
+done < requirements.txt
 
 CRON='* * * * * /usr/bin/payment-check >/dev/null 2>&1'
 grep -Fxq "$CRON" /etc/crontabs/root || {
