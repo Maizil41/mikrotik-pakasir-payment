@@ -1,0 +1,11 @@
+
+config wifi_payment 'settings'
+	option enabled '1'
+	option api_provider 'pakasir'
+	option app_port '8000'
+	option mt_host '172.18.10.141'
+	option mt_user 'admin'
+	option mt_pass 'mutiara'
+	option slug 'mutiara-wrt-sandbox'
+	list apikey 'ssiduvmIH30FuujaRXEwI3fdOd2XXXXX'
+

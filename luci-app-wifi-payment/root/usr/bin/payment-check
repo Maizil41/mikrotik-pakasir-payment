@@ -1,0 +1,11 @@
+#!/bin/sh
+
+enabled=$(uci get wifi-payment.@wifi_payment[0].enabled 2>/dev/null)
+
+if [ "$enabled" = "1" ]; then
+  PID=$(ps | grep '[n]ode server.js' | awk '{print $1}')
+  
+  if [ -z "$PID" ]; then
+    /etc/init.d/wifi-payment restart
+  fi
+fi

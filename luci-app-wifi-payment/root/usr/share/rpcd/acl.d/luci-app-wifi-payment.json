@@ -1,0 +1,11 @@
+{
+	"luci-app-wifi-payment": {
+		"description": "Grant UCI access for luci-app-wifi-payment",
+		"read": {
+			"uci": [ "wifi-payment" ]
+		},
+		"write": {
+			"uci": [ "wifi-payment" ]
+		}
+	}
+}
