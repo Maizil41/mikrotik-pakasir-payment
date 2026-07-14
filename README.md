@@ -28,6 +28,15 @@ Payment Gateway MikroTik Dengan Integrasi API Pakasir
 
 ## 📦 Instalasi
 
+Bypass IP Openwrt Di `Mikrotik` Agar bisa Mengaskses API, Pastekan kode Berikut di Terminal Winbox
+
+```bash
+/ip hotspot walled-garden ip
+add dst-address=192.168.1.1 action=accept
+```
+
+# Konfigurasi Di Openwrt:
+
 Untuk `openwrt 23` dan lebih rendah:
 
 ```bash
