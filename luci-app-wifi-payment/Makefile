@@ -5,7 +5,7 @@
 include $(TOPDIR)/rules.mk
 
 LUCI_TITLE:=LuCI for Payment Gateway.
-LUCI_DEPENDS:=+node +node-npm
+LUCI_DEPENDS:=+node +node-npm +python3 +sqlite3-cli
 LUCI_DESCRIPTION:=Payment Gateway for MikroTik.
 
 PKG_MAINTAINER:=Maizil <maizilpc7@gmail.com>
