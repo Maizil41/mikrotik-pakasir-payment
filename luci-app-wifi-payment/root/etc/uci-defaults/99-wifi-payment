@@ -1,13 +1,13 @@
 #!/bin/sh
 
-cd /etc/wifi-payment/ || exit 1
+cd /etc/wifi-payment || exit 1
 
-npm install || exit 1
+cat requirements.txt | xargs npm install
 
-sleep 1
-
-CRON='* * * * * /usr/bin/payment-check >/dev/null 2>&1'; grep -Fxq "$CRON" /etc/crontabs/root || { echo "$CRON" >> /etc/crontabs/root; /etc/init.d/cron restart; }
-
-sleep 1
+CRON='* * * * * /usr/bin/payment-check >/dev/null 2>&1'
+grep -Fxq "$CRON" /etc/crontabs/root || {
+    echo "$CRON" >> /etc/crontabs/root
+    /etc/init.d/cron restart
+}
 
 rm -f /etc/uci-defaults/99-whatsapp-bot
