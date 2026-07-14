@@ -67,13 +67,10 @@ function get_log_content()
 
     local lines = {}
     for line in f:lines() do
-        -- Menambahkan baris ke posisi terakhir (urutan normal)
         table.insert(lines, line)
     end
     f:close()
 
-    -- Opsional: Ambil hanya 500 baris terakhir jika file terlalu besar
-    -- agar tidak membebani memori/browser
     local start_idx = #lines > 500 and (#lines - 499) or 1
     local output = {}
     for i = start_idx, #lines do
