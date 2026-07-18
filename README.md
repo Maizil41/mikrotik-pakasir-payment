@@ -40,15 +40,15 @@ add dst-address=192.168.1.1 action=accept
 Untuk `openwrt 24` dan lebih rendah:
 
 ```bash
-wget -O /tmp/luci-app-wifi-payment_1.1_all.ipk https://github.com/Maizil41/mikrotik-pakasir-payment/releases/download/v1.1/luci-app-wifi-payment_1.1_all.ipk
+wget -O /tmp/luci-app-wifi-payment_1.2_all.ipk https://github.com/Maizil41/mikrotik-pakasir-payment/releases/download/v1.2/luci-app-wifi-payment_1.2_all.ipk
 
-opkg install /tmp/luci-app-wifi-payment_1.1_all.ipk
+opkg install /tmp/luci-app-wifi-payment_1.2_all.ipk
 ```
 
 Untuk `openwrt 25` dan lebih baru:
 
 ```bash
-wget -O /tmp/luci-app-wifi-payment-1.1-r1.apk https://github.com/Maizil41/mikrotik-pakasir-payment/releases/download/v1.1/luci-app-wifi-payment-1.1-r1.apk
+wget -O /tmp/luci-app-wifi-payment-1.2-r1.apk https://github.com/Maizil41/mikrotik-pakasir-payment/releases/download/v1.2/luci-app-wifi-payment-1.2-r1.apk
 
-apk add --allow-untrusted /tmp/luci-app-wifi-payment-1.1-r1.apk
+apk add --allow-untrusted /tmp/luci-app-wifi-payment-1.2-r1.apk
 ```
