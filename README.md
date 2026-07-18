@@ -12,21 +12,10 @@ Payment Gateway MikroTik Dengan Integrasi API Pakasir
 ## 📦 Depedensi
 
 ```bash
-{
-    "axios",
-    "cors",
-    "crypto",
-    "dayjs",
-    "express",
-    "node-routeros",
-    "pakasir-sdk",
-    "qrcode",
-    "sharp",
-    "sqlite3"
-}
++node +node-npm +coreutils-nohup
 ```
 
-## 📦 Instalasi
+## 🛠️ Instalasi
 
 Bypass IP Openwrt Di `Mikrotik` Agar bisa Mengaskses API, Pastekan kode Berikut di Terminal Winbox
 
@@ -39,16 +28,25 @@ add dst-address=192.168.1.1 action=accept
 
 Untuk `openwrt 24` dan lebih rendah:
 
+Unduh IPK
 ```bash
 wget -O /tmp/luci-app-wifi-payment_1.2_all.ipk https://github.com/Maizil41/mikrotik-pakasir-payment/releases/download/v1.2/luci-app-wifi-payment_1.2_all.ipk
+```
 
+Pasang IPK
+```bash
 opkg install /tmp/luci-app-wifi-payment_1.2_all.ipk
 ```
+<br/>
 
 Untuk `openwrt 25` dan lebih baru:
 
+Unduh IPK
 ```bash
 wget -O /tmp/luci-app-wifi-payment-1.2-r1.apk https://github.com/Maizil41/mikrotik-pakasir-payment/releases/download/v1.2/luci-app-wifi-payment-1.2-r1.apk
+```
 
+Pasang IPK
+```bash
 apk add --allow-untrusted /tmp/luci-app-wifi-payment-1.2-r1.apk
 ```
