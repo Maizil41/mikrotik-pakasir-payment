@@ -8,8 +8,12 @@ while IFS= read -r pkg; do
         \#*) continue ;;
     esac
 
-    echo "Installing $pkg..."
-    npm install "$pkg" || exit 1
+    if [ -d "node_modules/$pkg" ]; then
+        echo "[INFO] $pkg sudah terinstall, melewati..."
+    else
+        echo "[INFO] Menginstall $pkg..."
+        npm install "$pkg" || exit 1
+    fi
 done < requirements.txt
 
 mkdir -p /etc/crontabs
@@ -21,4 +25,5 @@ grep -Fxq "$CRON" /etc/crontabs/root || {
     /etc/init.d/cron restart
 }
 
-rm -f /etc/uci-defaults/99-whatsapp-bot
+rm -f /etc/uci-defaults/99-wifi-payment
+rm -f /etc/wifi-payment/requirements.txt

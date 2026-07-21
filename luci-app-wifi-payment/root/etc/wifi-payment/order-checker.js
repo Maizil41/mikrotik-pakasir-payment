@@ -1,46 +1,11 @@
 const axios = require('axios');
 const pakasir = require('./pakasir');
-const db = require('./db');
 const dayjs = require('dayjs');
 const utc = require('dayjs/plugin/utc');
 const timezone = require('dayjs/plugin/timezone');
 const { execSync } = require('child_process');
 const { RouterOSAPI } = require('node-routeros');
-
-function getUciValue(path) {
-  try { return execSync(`uci get '${path}'`).toString().trim(); }
-  catch (e) { return null; }
-}
-
-function saveLog(msg) { console.log(`[${dayjs().format('HH:mm:ss')}] ${msg}`); }
-
-async function tambahUserMikrotik(mac, namaPaket, order_id, durasiUptime) {
-  try {
-    const host = getUciValue('wifi-payment.@wifi_payment[0].mt_host');
-    const user = getUciValue('wifi-payment.@wifi_payment[0].mt_user');
-    const pass = getUciValue('wifi-payment.@wifi_payment[0].mt_pass');
-
-    const api = new RouterOSAPI({ host, user, password: pass, timeout: 5000 });
-    await api.connect();
-
-    const username = Math.random().toString(36).substring(2, 8).toUpperCase();
-    
-    await api.write('/ip/hotspot/user/add', [
-      `=name=${username}`,
-      `=password=${username}`,
-      `=profile=${namaPaket}`,
-      `=limit-uptime=${durasiUptime}`,
-      `=comment=${order_id}`
-    ]);
-
-    await api.close();
-    saveLog(`🚀 Akun Hotspot dibuat: ${username}`);
-    return username;
-  } catch (err) {
-    saveLog(`❌ Error Mikrotik: ${err.message}`);
-    return null;
-  }
-}
+const { db, saveLog, tambahUserMikrotik } = require('./function');
 
 async function prosesTransaksi() {
   try {
