@@ -192,11 +192,22 @@ app.get("/api/profile", async (req, res) => {
 });
 
 app.post('/api/callback/payment', async (req, res) => {
+    
+    if (MODE !== 'callback') {
+        return res.status(200).json({ 
+            success: false, 
+            message: "Callback ignored: Server is in polling mode" 
+        });
+    }
+    
     const { order_id, status, amount, payment_method } = req.body;
     
     saveLog(`[CALLBACK] Menerima push status ${status} untuk order ${order_id}`);
 
-    res.status(200).json({ message: "Callback received" });
+    res.status(200).json({ 
+        success: true, 
+        message: "Callback received" 
+    });
 
     if (status === 'completed') {
         db.get(`SELECT * FROM orders WHERE order_id = ?`, [order_id], async (err, payment) => {
